@@ -2,7 +2,7 @@ name: docker bastion
 on:
   workflow_dispatch:
 jobs:
-  docker bastion:
+  docker-bastion:
     runs-on: ubuntu-latest
     steps:
     - name: check out code
