@@ -1,0 +1,10 @@
+name: docker bastion
+on:
+  workflow_dispatch:
+jobs:
+  docker bastion:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check out code
+      uses: actions/checkout@v5
+        
