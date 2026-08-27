@@ -7,6 +7,12 @@ jobs:
     steps:
     - name: Copy Repo Files
       uses: actions/checkout@v5
-    - name: check files
-      run: ls -l
+    - name: terraform install
+      uses: hashicorp/setup-terraform@v3
+    - name: terraform init
+      run: terraform init
+    - name: "Configure AWS Credentials" Action for GitHub Actions
+      uses: aws-actions/configure-aws-credentials@v6.2.3
+
+    
         
