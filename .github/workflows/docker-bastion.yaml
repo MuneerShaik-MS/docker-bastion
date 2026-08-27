@@ -5,7 +5,7 @@ jobs:
   docker-bastion:
     runs-on: ubuntu-latest
     steps:
-    - name: check out code
+    - name: Copy Repo Files
       uses: actions/checkout@v5
     - name: check files
       run: ls -l
