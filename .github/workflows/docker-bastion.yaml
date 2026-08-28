@@ -25,7 +25,7 @@ jobs:
     - name: terraform plan
       run: terraform plan
     - name: terraform apply
-      run: terraform {{ inputs.Action}}
+      run: terraform {{ inputs.Action }}
 
       
 
