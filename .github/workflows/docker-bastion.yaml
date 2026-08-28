@@ -1,6 +1,11 @@
 name: docker bastion
 on:
   workflow_dispatch:
+    inputs:
+      Action:
+        description: " apply or destroy ?"
+        required: true
+        type: string
 jobs:
   docker-bastion:
     runs-on: ubuntu-latest
@@ -17,8 +22,11 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
-    - name: Test AWS Credentails
-      run: aws sts get-caller-identity
+    - name: terraform plan
+      run: terraform plan
+    - name: terraform apply
+      run: terraform {{ inputs.}}
+
       
 
     
