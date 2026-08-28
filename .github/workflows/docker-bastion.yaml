@@ -6,6 +6,9 @@ on:
         description: " apply or destroy ?"
         required: true
         type: choice
+        options:
+         - apply
+         - destroy 
 jobs:
   docker-bastion:
     runs-on: ubuntu-latest
@@ -25,7 +28,11 @@ jobs:
     - name: terraform plan
       run: terraform plan
     - name: terraform apply
-      run: terraform {{ inputs.action }}
+      if: ${{ inputs.action == 'apply' }}
+      run: terraform apply -auto-approve
+    - name: terraform destroy
+      if: ${{ inputs.action == 'destroy' }}
+      run: terraform destroy -auto-approve
 
       
 
