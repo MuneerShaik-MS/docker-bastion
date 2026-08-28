@@ -2,10 +2,10 @@ name: docker bastion
 on:
   workflow_dispatch:
     inputs:
-      Action:
+      action:
         description: " apply or destroy ?"
         required: true
-        type: string
+        type: choice
 jobs:
   docker-bastion:
     runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
     - name: terraform plan
       run: terraform plan
     - name: terraform apply
-      run: terraform {{ inputs.Action }}
+      run: terraform {{ inputs.action }}
 
       
 
