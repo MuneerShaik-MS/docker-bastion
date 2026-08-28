@@ -1,10 +1,6 @@
 name: docker bastion
 on:
   workflow_dispatch:
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   docker-bastion:
     runs-on: ubuntu-latest
@@ -18,8 +14,9 @@ jobs:
     - name: Configure AWS Credentials 
       uses: aws-actions/configure-aws-credentials@v6.2.3
       with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
-        role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
     - name: Test AWS Credentails
       run: aws sts get-caller-identity
       
