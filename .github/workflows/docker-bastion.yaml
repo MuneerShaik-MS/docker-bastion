@@ -1,9 +1,9 @@
 name: docker bastion
 on:
   workflow_dispatch:
-# permissions:
-#   id-token: write
-#   contents: read
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   docker-bastion:
