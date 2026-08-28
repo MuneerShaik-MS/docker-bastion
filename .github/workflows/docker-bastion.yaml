@@ -1,6 +1,10 @@
 name: docker bastion
 on:
   workflow_dispatch:
+permissions:
+  id-tocken: write
+  contents: read
+
 jobs:
   docker-bastion:
     runs-on: ubuntu-latest
@@ -11,8 +15,15 @@ jobs:
       uses: hashicorp/setup-terraform@v3
     - name: terraform init
       run: terraform init
-    - name: "Configure AWS Credentials" Action for GitHub Actions
+    - name: Configure AWS Credentials for China region audience
       uses: aws-actions/configure-aws-credentials@v6.2.3
+      with:
+        audience: sts.amazonaws.com.cn
+        aws-region: us-east-1
+        role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+    - name: Test AWS Credentails
+      run: aws sts get-caller-identity
+      
 
     
         
