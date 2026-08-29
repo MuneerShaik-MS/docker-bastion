@@ -24,7 +24,7 @@ jobs:
     - name: terraform add-iin
       uses: hashicorp/setup-terraform@v3
     - name: Download state file from S3
-      run: aws s3 cp terraform.tfstate s3://cloudk-remote-state/eks-bastion
+      run: aws s3 cp terraform.tfstate s3://cloudk-remote-state/docker-bastion
     - name: terraform init
       run: terraform init
     - name: terraform plan
