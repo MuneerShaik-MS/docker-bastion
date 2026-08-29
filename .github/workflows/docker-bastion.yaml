@@ -13,7 +13,7 @@ jobs:
   docker-bastion:
     runs-on: ubuntu-latest
     run: 
-      working-directory: ./
+      working-directory: .github/workflows/*
     steps:
     - name: Copy Repo Files
       uses: actions/checkout@v5
