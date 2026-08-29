@@ -9,7 +9,7 @@ terraform {
     bucket = "cloudk-remote-state"
     key    = "eks-bastion"
     region = "us-east-1"
-    dynamodb_table = "cloudK-locking"
+    use_lockfile = true
   }
 }
 
